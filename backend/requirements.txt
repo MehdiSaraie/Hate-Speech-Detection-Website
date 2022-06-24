@@ -1,0 +1,9 @@
+Django
+gunicorn
+djangorestframework
+coreapi
+django-filter
+django-crispy-forms
+djoser
+django-cors-headers
+huggingface_hub
