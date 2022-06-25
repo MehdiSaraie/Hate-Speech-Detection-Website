@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django_filters',
     'crispy_forms',
     'corsheaders',
+    'import_export',
     #project apps
     'accounts.apps.AccountsConfig',
     'forum.apps.ForumConfig'
