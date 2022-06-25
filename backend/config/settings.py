@@ -39,14 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #third-party packages
     'rest_framework',
-    'rest_framework.authtoken',
+    # 'rest_framework.authtoken',
     'djoser',
     'django_filters',
     'crispy_forms',
     'corsheaders',
     'import_export',
     #project apps
-    'accounts.apps.AccountsConfig',
     'forum.apps.ForumConfig'
 ]
 
@@ -142,10 +141,12 @@ REST_FRAMEWORK = {
 
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
+        # 'rest_framework.permissions.IsAuthenticated',
         'config.permissions.IsOwnerOrReadOnly',
     )
 }
 
 # CORS Settings
 CORS_ORIGIN_ALLOW_ALL = True
+
+# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

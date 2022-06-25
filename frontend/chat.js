@@ -75,7 +75,7 @@ function removeConfirmDialog(messageContainer) {
 }
 
 async function handleDecline(message) {
-    const response = await fetch(apiUrl + "messages/" + message.id, {method: 'PATCH', body: JSON.stringify({isOffensiveInUserView: !message.isOffensiveInModelView}), headers: {Authorization: 'Token ' + authToken, 'Content-Type': 'application/json'}});
+    const response = await fetch(apiUrl + "messages/" + message.id, {method: 'PATCH', body: JSON.stringify({isOffensiveInUserView: !message.isOffensiveInModelView}), headers: {'Content-Type': 'application/json'}});
     if (response.ok) {
         const newMessage = await response.json();
         console.log('message = ', newMessage);
@@ -92,14 +92,13 @@ async function sendMessage() {
         return;
 
     pending = true;
-    // console.log('started')
     async function request() {
         console.log('fetch started')
         const response = await fetch(apiUrl + "messages",
             {
                 method: 'POST',
                 body: JSON.stringify({text: inputText, userIP: await userIP}),
-                headers: {Authorization: 'Token ' + authToken, 'Content-Type': 'application/json'},
+                headers: {'Content-Type': 'application/json'},
             }
         );
         pending = false;
