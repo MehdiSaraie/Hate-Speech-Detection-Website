@@ -10,9 +10,9 @@ class Message(models.Model):
         related_name="messages"
     )
     text = models.TextField(blank=False)
-    createdAt = models.DateTimeField(auto_now_add=True)
     isOffensiveInModelView=models.BooleanField(null=True)
     isOffensiveInUserView=models.BooleanField(null=True)
+    createdAt = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.text

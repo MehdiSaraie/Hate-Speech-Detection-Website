@@ -11,4 +11,4 @@ class MessageSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Message
-        fields = ('id', 'userIP', 'owner', 'text', 'createdAt', 'isOffensiveInModelView', 'isOffensiveInUserView',)
+        fields = ('id', 'userIP', 'text', 'isOffensiveInModelView', 'isOffensiveInUserView', 'createdAt',)

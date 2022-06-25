@@ -15,10 +15,10 @@ class MessageViewSet(viewsets.ModelViewSet):
     queryset = Message.objects.all()
     serializer_class = MessageSerializer
     filter_backends = (filters.SearchFilter, filters.OrderingFilter, DjangoFilterBackend)
-    search_fields = ('text',)
+    search_fields = ('text', 'userIP', 'createdAt')
     ordering_fields = ('createdAt', 'text',)
     ordering = ('-createdAt', 'text',)
-    filter_fields = ['owner',]
+    filter_fields = ('text', 'userIP', 'createdAt')
     inference = InferenceApi(repo_id="UT/BMW", token='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')
 
     def perform_create(self, serializer):
