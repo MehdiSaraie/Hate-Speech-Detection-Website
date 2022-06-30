@@ -10,6 +10,7 @@ from .serializers import MessageSerializer
 
 
 # Create your views here.
+OFFESNSIVE_CLASS_LABEL = 'LABEL_0'
 
 class MessageViewSet(viewsets.ModelViewSet):
     queryset = Message.objects.all()
@@ -25,5 +26,7 @@ class MessageViewSet(viewsets.ModelViewSet):
         text = self.request.data['text']
         result = self.inference(inputs=text)
         print(result, 'helllllllllo')
-        isOffensive = result[0][0]['score'] > 0.5
+        for res_class in result[0]:
+            if res_class['label'] == OFFESNSIVE_CLASS_LABEL:
+                isOffensive = res_class['score'] > 0.5
         serializer.save(isOffensiveInModelView=isOffensive, isOffensiveInUserView=isOffensive)
