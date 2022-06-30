@@ -26,4 +26,4 @@ class MessageViewSet(viewsets.ModelViewSet):
         result = self.inference(inputs=text)
         print(result, 'helllllllllo')
         isOffensive = result[0][0]['score'] > 0.5
-        serializer.save(owner=self.request.user, isOffensiveInModelView=isOffensive, isOffensiveInUserView=isOffensive)
+        serializer.save(isOffensiveInModelView=isOffensive, isOffensiveInUserView=isOffensive)

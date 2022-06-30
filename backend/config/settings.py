@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #third-party packages
     'rest_framework',
-    # 'rest_framework.authtoken',
     'djoser',
     'django_filters',
     'crispy_forms',
@@ -116,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tehran'
 
 USE_I18N = True
 
@@ -133,20 +132,7 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 STATIC_ROOT = '/var/www/static'
 STATICFILES_DIRS = [STATIC_DIR, ]
 
-# DRF Settings
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
-
-    ),
-    'DEFAULT_PERMISSION_CLASSES': (
-        # 'rest_framework.permissions.IsAuthenticated',
-        'config.permissions.IsOwnerOrReadOnly',
-    )
-}
-
 # CORS Settings
 CORS_ORIGIN_ALLOW_ALL = True
 
-# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
