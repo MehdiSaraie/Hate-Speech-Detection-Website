@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '_-bd^q5y(3o_$fg2yb_(@n&!5+^il+c7ys^$dbajv$w*omad42'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'true') in ['true', 'True', 'yes']
+# DEBUG = os.getenv('DEBUG', 'true') in ['true', 'True', 'yes']
 
-ALLOWED_HOSTS = [ os.getenv('ALLOWED_HOST', '*'), ]
+ALLOWED_HOSTS = [ os.getenv('ALLOWED_HOST', '.hatespeech.ir'), ]
 
 
 # Application definition
