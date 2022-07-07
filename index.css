@@ -1,0 +1,63 @@
+@font-face {
+    src: url('./fonts/B-Nazanin.TTF');
+    font-family: B-Nazanin;
+    font-weight: normal;
+}
+
+body, div, p, input, button {
+    direction: rtl;
+    margin: 0;
+    font-family: 'B-Nazanin', sans-serif;
+    font-size: 12pt;
+}
+
+p {
+    line-height: 2em;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+#header {
+    display: flex;
+    margin: 50px 6% 0 6%;
+}
+
+#main {
+    margin: 2% 6% 0;
+}
+
+.header-item {
+    width: 15%;
+    position: relative;
+}
+
+.header-left > img {
+    left: 0;
+}
+
+.header-item > img {
+    height: 6.5vmax;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.header-item.header-center {
+    width: 70%;
+    padding: 0 12px 0 12px;
+    line-height: 7vmin;
+    text-align: center;
+}
+
+hr {
+    margin: auto 6% 3vmin 6%;
+    background-color: black;
+    height: 1.5px;
+}
+
+#demo {
+    border-radius: 20px;
+    height: 80vh;
+    width: 100%;
+    border: none;
+}

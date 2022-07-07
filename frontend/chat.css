@@ -4,6 +4,10 @@ body, input, p, div {
     font-size: medium;
 }
 
+body {
+    background-color: #77c5fc;
+}
+
 @media screen and (max-height: 580px) {
     body, input, p {font-size: smaller};
 }
@@ -18,7 +22,8 @@ body, input, p, div {
 }
 
 .main {
-    margin: 1vh 2.5%;
+    background-color: #FFFFFF;
+    margin: 2vh 2vh;
     padding: 0.5vh 2%;
     position: relative;
     display: flex;
