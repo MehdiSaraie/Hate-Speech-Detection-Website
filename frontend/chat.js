@@ -1,11 +1,9 @@
 const apiUrl = "http://localhost:8000/api/";
-const authToken = 'f2bafef7c76ae7e4b8fd5dbe83a6d33efe2624b8';
 const bigDataCloudApiKey = 'd08ba69254c44e4fbfc0fd8d20bb4ffa';
 
 const userIP = (async function getIP() {
     const response = await fetch('https://api.bigdatacloud.net/data/ip-geolocation?key=' + bigDataCloudApiKey);
     const locationInfo = await response.json();
-    console.log(locationInfo);
     return locationInfo.ip;
 })();
 
@@ -17,7 +15,6 @@ async function waitForResponse() {
     let count = 0;
     let interval = setInterval(() => {
         if (pending) {
-            console.log('oooops');
             if (count === 3) {
                 count = 0;
                 input.value = inputText;
@@ -78,11 +75,7 @@ async function handleDecline(message) {
     const response = await fetch(apiUrl + "messages/" + message.id, {method: 'PATCH', body: JSON.stringify({isOffensiveInUserView: !message.isOffensiveInModelView}), headers: {'Content-Type': 'application/json'}});
     if (response.ok) {
         const newMessage = await response.json();
-        console.log('message = ', newMessage);
         return newMessage;
-    }
-    else {
-        console.log(response);
     }
 }
 
@@ -93,7 +86,6 @@ async function sendMessage() {
 
     pending = true;
     async function request() {
-        console.log('fetch started')
         const response = await fetch(apiUrl + "messages",
             {
                 method: 'POST',
@@ -106,15 +98,10 @@ async function sendMessage() {
     };
     const responses = await Promise.all([request(), waitForResponse()]);
     const response = responses[0];
-    console.log('after')
     pending = false;
     if (response.ok) {
         const message = await response.json();
-        console.log('message = ', message);
         showMessage(message);
-    }
-    else {
-        console.log(response);
     }
     
     input.value = '';
