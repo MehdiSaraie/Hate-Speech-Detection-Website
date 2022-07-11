@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #third-party packages
     'rest_framework',
-    'djoser',
     'django_filters',
     'crispy_forms',
     'corsheaders',

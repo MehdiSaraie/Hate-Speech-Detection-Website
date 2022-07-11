@@ -1,8 +1,6 @@
 from rest_framework import viewsets
 from rest_framework import filters
 from huggingface_hub.inference_api import InferenceApi
-from django.views import View
-
 from django_filters.rest_framework import DjangoFilterBackend
 
 from .models import Message
@@ -25,7 +23,6 @@ class MessageViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         text = self.request.data['text']
         result = self.inference(inputs=text)
-        # print(result, 'helllllllllo')
         for res_class in result[0]:
             if res_class['label'] == OFFESNSIVE_CLASS_LABEL:
                 isOffensive = res_class['score'] > 0.5

@@ -16,10 +16,7 @@ Including another URLconf
 from django.conf.urls import include
 from django.urls import re_path
 from django.contrib import admin
-
 from rest_framework import routers
-from rest_framework.documentation import include_docs_urls
-from rest_framework import permissions
 
 from forum.views import MessageViewSet
 
@@ -28,8 +25,5 @@ router.register(r'messages', MessageViewSet)
 
 urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
-    re_path(r'^api-docs/', include_docs_urls(title='Forum App API',  permission_classes=(permissions.AllowAny,))),
-    re_path(r'^api-auth/', include('djoser.urls')),
-    re_path(r'^api-auth/', include('djoser.urls.authtoken')),
     re_path(r'^api/', include(router.urls)),
 ]
