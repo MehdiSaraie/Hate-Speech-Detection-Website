@@ -4,6 +4,12 @@
     font-weight: normal;
 }
 
+@font-face {
+    src: url('./fonts/B-Titr-Bold.ttf');
+    font-family: B-Titr;
+    font-weight: normal;
+}
+
 body, div, p, input, button {
     direction: rtl;
     margin: 0;
@@ -49,6 +55,10 @@ p {
     text-align: center;
 }
 
+.header-center > div {
+    font-family: 'B-Titr', sans-serif;
+}
+
 hr {
     margin: auto 6% 3vmin 6%;
     background-color: black;
@@ -60,4 +70,12 @@ hr {
     height: 80vh;
     width: 100%;
     border: none;
+}
+
+#research-team > p {
+    font-size: 10.5pt;
+}
+
+#research-team a {
+    font-size: 9pt;
 }
