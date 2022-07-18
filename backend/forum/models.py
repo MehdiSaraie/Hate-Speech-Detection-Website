@@ -6,6 +6,9 @@ class Message(models.Model):
     text = models.TextField(blank=False)
     isOffensiveInModelView=models.BooleanField(null=True)
     isOffensiveInUserView=models.BooleanField(null=True)
+    isHatefulInModelView=models.BooleanField(null=True)
+    isHatefulInUserView=models.BooleanField(null=True)
+    hateCategory=models.CharField(max_length=9, blank=True, null=True)
     createdAt = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

@@ -7,4 +7,4 @@ from .models import Message
 class MessageSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Message
-        fields = ('id', 'userIP', 'text', 'isOffensiveInModelView', 'isOffensiveInUserView', 'createdAt',)
+        fields = ('id', 'userIP', 'text', 'isOffensiveInModelView', 'isOffensiveInUserView', 'isHatefulInModelView', 'isHatefulInUserView', 'hateCategory', 'createdAt',)

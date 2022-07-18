@@ -6,8 +6,8 @@ from .models import Message
 # Register your models here.
 
 class messageAdmin(ImportExportModelAdmin, admin.ModelAdmin):
-    list_display= ['userIP', 'text', 'isOffensiveInModelView','isOffensiveInUserView', 'createdAt']
-    list_filter = ('isOffensiveInModelView','isOffensiveInUserView', 'createdAt')
+    list_display= ['userIP', 'text', 'isOffensiveInModelView','isOffensiveInUserView', 'isHatefulInModelView', 'isHatefulInUserView', 'hateCategory', 'createdAt']
+    list_filter = ('isOffensiveInModelView','isOffensiveInUserView', 'isHatefulInModelView', 'isHatefulInUserView', 'hateCategory', 'createdAt')
     search_fields = ('text', 'userIP')
 
 admin.site.unregister(User)

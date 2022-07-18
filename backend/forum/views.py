@@ -18,12 +18,18 @@ class MessageViewSet(viewsets.ModelViewSet):
     ordering_fields = ('createdAt', 'text',)
     ordering = ('-createdAt', 'text',)
     filter_fields = ('text', 'userIP', 'createdAt')
-    inference = InferenceApi(repo_id="UT/BMW", token='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')
+    inference = InferenceApi(repo_id="UT/BRTW_MULICLASS", token='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')
 
     def perform_create(self, serializer):
         text = self.request.data['text']
         result = self.inference(inputs=text)
-        for res_class in result[0]:
-            if res_class['label'] == OFFESNSIVE_CLASS_LABEL:
-                isOffensive = res_class['score'] > 0.5
-        serializer.save(isOffensiveInModelView=isOffensive, isOffensiveInUserView=isOffensive)
+        pred_classes = result[0]
+        labels = {'LABEL_0': 'فقط توهین' , 'LABEL_1': 'خنثی', 'LABEL_2': 'مذهب', 'LABEL_3': 'ملیت', 'LABEL_4': 'نژاد و قومیت'}
+        max_index = max(range(len(pred_classes)), key=lambda x : pred_classes[x]['score'])
+        max_label = pred_classes[max_index]['label']
+        hate_category = labels[max_label]
+        is_offensive = hate_category != 'خنثی'
+        is_hateful = hate_category != 'فقط توهین' and hate_category != 'خنثی'
+        if hate_category == 'فقط توهین' or hate_category == 'خنثی':
+            hate_category = None
+        serializer.save(isOffensiveInModelView=is_offensive, isOffensiveInUserView=is_offensive, isHatefulInModelView=is_hateful, isHatefulInUserView=is_hateful, hateCategory=hate_category)
