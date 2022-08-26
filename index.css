@@ -59,23 +59,46 @@ p {
     font-family: 'B-Titr', sans-serif;
 }
 
-hr {
-    margin: auto 6% 3vmin 6%;
-    background-color: black;
-    height: 1.5px;
+#navbar {
+    display: flex;
+    list-style-type: none;
+    margin: 2% 6% 0;
+    padding: 0;
+    background-color: rgb(230, 230, 230);
+}
+
+#navbar li {
+    border-bottom: 3px solid rgb(189, 189, 189);
+}
+
+#navbar li > a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#navbar li:last-of-type {
+    flex-grow: 1;
+}
+
+#navbar li:hover:not(li:last-of-type) {
+    background-color: rgb(189, 189, 189);
+    border-bottom: 3px solid black;
 }
 
 #demo {
     border-radius: 20px;
-    height: 80vh;
+    height: 70vh;
     width: 100%;
     border: none;
 }
 
-#research-team > p {
+#about-us > p {
     font-size: 10.5pt;
 }
 
-#research-team a {
+#about-us a {
     font-size: 9pt;
 }
