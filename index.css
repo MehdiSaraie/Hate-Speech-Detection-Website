@@ -29,23 +29,23 @@ p {
 }
 
 #main {
-    margin: 2% 6% 0;
+    margin: 2% 10%;
 }
 
 .header-item {
     width: 15%;
-    position: relative;
+    /*position: relative;*/
 }
 
 .header-left > img {
-    left: 0;
+    float: left;
 }
 
 .header-item > img {
     height: 6.5vmax;
-    position: absolute;
+    /*position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%);*/
 }
 
 .header-item.header-center {
@@ -53,6 +53,8 @@ p {
     padding: 0 12px 0 12px;
     line-height: 7vmin;
     text-align: center;
+	height: min-content;
+    align-self: center;
 }
 
 .header-center > div {
@@ -62,13 +64,14 @@ p {
 #navbar {
     display: flex;
     list-style-type: none;
-    margin: 2% 6% 0;
+    margin: 0 6%;
     padding: 0;
     background-color: rgb(230, 230, 230);
 }
 
 #navbar li {
     border-bottom: 3px solid rgb(189, 189, 189);
+	transition: all 0.2s ease;
 }
 
 #navbar li > a {
@@ -88,6 +91,10 @@ p {
     border-bottom: 3px solid black;
 }
 
+#navbar li.active:not(li:last-of-type) {
+    background-color: rgb(200, 200, 200);
+}
+
 #demo {
     border-radius: 20px;
     height: 70vh;
@@ -102,3 +109,7 @@ p {
 #about-us a {
     font-size: 9pt;
 }
+
+/*strong {
+	font-weight: bold;
+}*/
